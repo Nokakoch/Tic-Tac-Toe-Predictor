@@ -15,3 +15,29 @@ Before adding any rules, we need to know what should be checked first. The most 
 `Can current player win immediately?`
 
 If there is a winning move, there is no reason to look at dataset statistics or any other rule. The game should end immediately.
+
+```
+- Test 1:
+-- Input: 
+Enter moves(row-col) seperate with ',':
+0-0, 1-0, 1-1,1-2
+-- Output:
+[
+    ['X', '-', '-'], 
+    ['O', 'X', 'O'], 
+    ['-', '-', '-']
+]
+2-2
+
+- Test 2:
+-- Input:
+Enter moves(row-col) seperate with ',':
+1-1,0-1,2-0,0-2,2-1
+-- Output:
+[
+    ['-', 'O', 'O'],
+    ['-', 'X', '-'], 
+    ['X', 'X', '-']
+]
+0-0
+```
