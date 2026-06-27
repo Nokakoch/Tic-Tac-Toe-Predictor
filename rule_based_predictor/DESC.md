@@ -52,3 +52,30 @@ The implementation is almost the same as the previous rule. Instead of simulatin
 
 This rule has lower priority than the immediate winning rule, because winning the game is always better than anything else. However, it has higher priority than any statistical prediction because losing in the next turn is never acceptable.
 
+Notice that the blocking rule does not require a new algorithm. It just use the winning move detector from the opponent's perspective.
+
+```
+- Test 1
+-- Input:
+Enter moves(row-col) seperate with ',':
+1-1,0-1,0-2
+- Output:
+[
+    ['-', 'O', 'X'], 
+    ['-', 'X', '-'], 
+    ['-', '-', '-']
+]
+2-0
+
+- Test 2
+-- Input:
+Enter moves(row-col) seperate with ',':
+0-2,0-1,2-0
+-- Output:
+[
+    ['-', 'O', 'X'], 
+    ['-', '-', '-'], 
+    ['X', '-', '-']
+]
+1-1
+```
