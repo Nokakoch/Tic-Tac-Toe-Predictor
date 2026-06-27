@@ -29,8 +29,12 @@ def find_winning_move(board, player):
                 return f"{row}-{col}"
             board[row][col] = "-"
 
+def find_blocking_move(board, player):
+    opponent = "O" if player == "X" else "X"
+    return find_winning_move(board,opponent)
+
 moves = input("Enter moves(row-col) seperate with ',':\n").split(',')
 board = create_board(moves)
 print(board)
 player = "X" if len(moves)%2 == 0 else "O"
-print(find_winning_move(board,player))
+print(find_blocking_move(board,player))
