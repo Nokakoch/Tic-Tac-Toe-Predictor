@@ -7,3 +7,11 @@ The problem with the simple baseline predictor was that it only looked at the wi
 However, our dataset contains every possible move, not only good moves. So the predictor eventually suggests moves based on all possible moves not the best ones.
 
 In this step, we solve this problem by adding simple game rules, such as detecting immediate winning moves or blocking the opponent's winning move.
+
+## Step 1
+
+Before adding any rules, we need to know what should be checked first. The most important question is:
+
+`Can current player win immediately?`
+
+If there is a winning move, there is no reason to look at dataset statistics or any other rule. The game should end immediately.
