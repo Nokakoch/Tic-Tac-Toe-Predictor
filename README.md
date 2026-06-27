@@ -77,5 +77,3 @@ This stage combines the simple data-based predictor with a small set of Tic Tac 
 In other words, the predictor still does most of the work, while the rules act as a safety net to prevent obvious mistakes.
 
 This hybrid approach keeps the model simple, but makes its decisions much closer to how an experienced player would actually play.
-
-<a href="hybrid_preictor/DESC.md">Check hybrid predictor Documentation</a>
