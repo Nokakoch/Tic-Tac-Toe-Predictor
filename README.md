@@ -20,3 +20,62 @@ And there is some facts that comes from our datas:
 - 21.4% of matches never reach eighth move.
 - 49.9% of matches never reach ninth move.
 - At least 5 moves need to end a game.
+
+## Simple baseline predictor
+
+Now let's build our first predictor.
+
+There is only one rule:
+
+**Trust the dataset.**
+
+- No game knowledge.
+- No rules.
+- No logic.
+
+Just let the data decide the next move.
+
+The results are... surprisingly mixed.
+
+Sometimes the model makes a perfect move, and sometimes it confidently recommends a move that loses immediately. Why? Because our dataset contains every legal game, including the terrible ones. The model learns human decisions—not necessarily good decisions.
+
+<a href="simple_baseline_move_predictor/DESC.md">Check Simple baseline move predictor Documentation</a>
+
+## Rule based predictor
+
+After seeing those mistakes, it became obvious that the dataset alone isn't enough.
+
+So we start teaching the predictor some actual Tic Tac Toe strategy.
+
+Things like:
+
+- Win immediately if possible.
+- Block an opponent's immediate win.
+
+Now the predictor isn't only learning from data—it also understands a little bit about the game itself.
+
+<a href="rule_based_predictor/DESC.md">Check rule based predictor Documentation</a>
+
+## Hybrid predictor
+
+The baseline predictor was a good start, but it had one major weakness:
+
+It learned from every legal game, including the bad ones.
+
+So instead of replacing the model, we asked a different question:
+
+`What if we keep the predictor, but only step in when game knowledge clearly knows better?`
+
+This stage combines the simple data-based predictor with a small set of Tic Tac Toe rules. The prediction flow becomes:
+- Immediate win?
+    ✓ Yes → Take it.
+- Otherwise, opponent can win next move?
+    ✓ Yes → Block it.
+- Otherwise...
+    → Use the baseline predictor.
+
+In other words, the predictor still does most of the work, while the rules act as a safety net to prevent obvious mistakes.
+
+This hybrid approach keeps the model simple, but makes its decisions much closer to how an experienced player would actually play.
+
+<a href="hybrid_preictor/DESC.md">Check hybrid predictor Documentation</a>
