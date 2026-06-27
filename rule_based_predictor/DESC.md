@@ -41,3 +41,14 @@ Enter moves(row-col) seperate with ',':
 ]
 0-0
 ```
+
+## Step 2
+
+Sometimes there is no immediate winning move.
+
+In this situation, we should check whether our opponent can win in the next turn. If so, preventing that move becomes the highest priority.
+
+The implementation is almost the same as the previous rule. Instead of simulating our own moves, we simulate every possible move for the opponent. If one of those moves lets the opponent win immediately, we simply play that position ourselves and block it.
+
+This rule has lower priority than the immediate winning rule, because winning the game is always better than anything else. However, it has higher priority than any statistical prediction because losing in the next turn is never acceptable.
+
